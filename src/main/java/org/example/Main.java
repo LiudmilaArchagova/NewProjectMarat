@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) throws MalformedURLException {
@@ -16,5 +17,15 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("Приложение завершило работу");
+        System.out.println(getWord(5));
+
+    }
+    public static String getWord (int length){
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            sb.append((char)ThreadLocalRandom.current().nextInt('a','z'+1));
+        }
+        return sb.toString();
+        // commit1
     }
 }
